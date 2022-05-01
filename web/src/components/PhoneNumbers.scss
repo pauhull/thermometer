@@ -1,0 +1,106 @@
+.number-list {
+  width: min(90%, 30em);
+  margin: 1em auto;
+
+  ul {
+    margin-top: 0.5em;
+    list-style: none;
+
+    li {
+      overflow: hidden;
+      border: 1px solid #2d2d2d;
+      border-bottom: none;
+      font-size: 1rem;
+      background: #0e0e0e;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      span {
+        padding: 0.75em;
+      }
+
+      &:first-child {
+        border-top-left-radius: 0.5em;
+        border-top-right-radius: 0.5em;
+      }
+
+      &:not(:last-child) button {
+        outline: none;
+        border: 1px solid #5c0f0f;
+        padding: 0.25em;
+        border-radius: 0.25em;
+        background: #bd1919;
+        cursor: pointer;
+        transition: 250ms;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0.5em;
+
+        &:hover {
+          background: #b11717;
+        }
+
+        &:active {
+          background: #891212;
+        }
+      }
+
+      &.new-number {
+        .accept {
+          margin-right: 0;
+          background: #289c28;
+          border: 1px solid #1c6f1c;
+          &:hover {
+            background: #207d20;
+          }
+          &:active {
+            background: #1b6a1b;
+          }
+        }
+        input {
+          margin: 0;
+          width: 100%;
+          font-size: 0.95rem;
+        }
+      }
+
+      &:last-child {
+        border-bottom-left-radius: 0.5em;
+        border-bottom-right-radius: 0.5em;
+        border: 1px solid #2b2b2b;
+        padding: 0;
+
+        button {
+          width: 100%;
+          margin: 0;
+          padding: 0.5em;
+          outline: none;
+          background: #181818;
+          color: white;
+          font-size: 1rem;
+          cursor: pointer;
+          transition: 250ms;
+          border: none;
+          font-family: "Roboto", sans-serif;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          &:hover {
+            background: #242424;
+          }
+
+          &:active {
+            background: #343434;
+          }
+
+          svg {
+            margin: 0.25em;
+          }
+        }
+      }
+    }
+  }
+}

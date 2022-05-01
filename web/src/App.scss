@@ -1,0 +1,58 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  background: #090909;
+  color: #fafafa;
+}
+
+.main-container {
+  width: min(40em, 100%);
+  margin: 0 auto;
+
+  h1 {
+    margin: min(1.75em, 10vw);
+    text-align: center;
+    font-weight: lighter;
+  }
+
+  hr {
+    width: 75%;
+    margin: min(1em, 5vw) auto;
+    border: none;
+    height: 1px;
+    background: #404040;
+  }
+
+  input {
+    font-family: "Roboto", sans-serif;
+    background: #101010;
+    outline: none;
+    padding: 0.5em;
+    color: #fafafa;
+    border-radius: 0.5em;
+    border: 1px solid #383838;
+    transition: 250ms;
+    margin: 0.25em;
+
+    &:hover {
+      border-color: #505050;
+    }
+
+    &:focus {
+      border-color: #929292;
+      background: #151515;
+    }
+
+    &[type=number] {
+      width: 2em;
+    }
+
+    &.error {
+      border: 1px solid #c60b0b;
+    }
+  }
+}

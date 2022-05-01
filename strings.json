@@ -1,0 +1,9 @@
+{
+  "title": "Innovatives Thermometer",
+  "temperature": "Temperatur",
+  "humidity": "Luftfeuchtigkeit",
+  "maxTemperature": "Alarm ab Temperatur:",
+  "alertNumbers": "Folgende Nummern alarmieren:",
+  "addNumber": "Nummer hinzufügen",
+  "alert": "Alarm aktiviert! Temperatur von {temp}°C um {time} erreicht."
+}

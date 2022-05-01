@@ -1,0 +1,46 @@
+.chooser {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  button {
+    margin-left: 0.5em;
+    outline: none;
+    background: #3b803b;
+    border: 1px solid #295329;
+    padding: 0.25em;
+    border-radius: 0.25em;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: 250ms;
+
+    &:hover {
+      background: #377637;
+    }
+
+    &:active {
+      background: #306630;
+    }
+
+    &:disabled {
+      background: #424242;
+      border: 1px solid #343434;
+      cursor: default;
+    }
+  }
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
