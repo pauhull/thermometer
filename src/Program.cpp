@@ -3,8 +3,6 @@
 
 void Program::setup() {
 
-    SerialMon.begin(115200);
-
     alarm.setup(this);
     led.begin();
 
@@ -13,6 +11,7 @@ void Program::setup() {
     alarm.begin();
     led.setStatus(BOOT);
 
+    SerialMon.begin(115200);
     sms.begin();
     sensor.begin();
     storage.begin();
