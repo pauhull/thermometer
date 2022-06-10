@@ -1,10 +1,25 @@
 #include <WiFi.h>
 #include <LittleFS.h>
+#include "pins.h"
 #include "WebServer.h"
 #include "Program.h"
 #include "../strings.h"
 
+class RedirectHandler : public AsyncWebHandler {
+
+    bool canHandle(AsyncWebServerRequest *request) override {
+        return request->host() != HOSTNAME;
+    }
+
+    void handleRequest(AsyncWebServerRequest *request) override {
+        request->redirect(String("http://") + HOSTNAME);
+    }
+
+};
+
 void WebServer::begin(Program *program) {
+
+    pinMode(BATTERY_PIN, INPUT);
 
     IPAddress apIP(8, 8, 4, 4);
     WiFi.disconnect();
@@ -17,6 +32,8 @@ void WebServer::begin(Program *program) {
     LittleFS.begin();
 
     server.serveStatic("/", LittleFS, "/").setDefaultFile("index.html");
+
+    server.addHandler(new RedirectHandler());
 
     server.on("/temps/history", HTTP_GET, [=](AsyncWebServerRequest *request) {
 
@@ -95,6 +112,10 @@ void WebServer::begin(Program *program) {
             response += program->alarm.time + "\n";
         }
         request->send(200, "text/plain", response);
+    });
+
+    server.on("/vbat", HTTP_GET, [=](AsyncWebServerRequest *request) {
+        request->send(200, "text/plain", String(analogRead(BATTERY_PIN)));
     });
 
     server.onNotFound([](AsyncWebServerRequest *request) {

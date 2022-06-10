@@ -9,3 +9,4 @@
 #define DHT_PIN           13
 #define STATUS_LED_PIN    25
 #define SPEAKER_PIN       14
+#define BATTERY_PIN       35
