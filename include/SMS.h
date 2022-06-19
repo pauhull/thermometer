@@ -19,6 +19,7 @@ public:
     bool sendSMS(const String& number, const String& text);
     String getTime();
     bool ready();
+    SimStatus getStatus();
 
 private:
     void setupModem();

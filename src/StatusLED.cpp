@@ -4,7 +4,7 @@
 void StatusLED::begin() {
     CFastLED::addLeds<WS2812B, STATUS_LED_PIN>(led, 1);
     led[0] = CRGB::Black;
-    FastLED.setBrightness(16);
+    FastLED.setBrightness(128);
     FastLED.show();
 }
 

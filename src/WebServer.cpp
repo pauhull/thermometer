@@ -118,6 +118,10 @@ void WebServer::begin(Program *program) {
         request->send(200, "text/plain", String(analogRead(BATTERY_PIN)));
     });
 
+    server.on("/ready", HTTP_GET, [=](AsyncWebServerRequest *request) {
+        request->send(200, "text/plain", program->sms.getStatus() == SIM_READY ? "true" : "false");
+    });
+
     server.onNotFound([](AsyncWebServerRequest *request) {
         request->redirect("/");
     });

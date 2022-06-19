@@ -12,7 +12,11 @@ void SMS::begin() {
     setupModem();
     SerialAT.begin(115200, SERIAL_8N1, MODEM_RX, MODEM_TX);
     modem.init();
-    modem.waitForNetwork();
+
+    SimStatus status = modem.getSimStatus();
+    if(status == SIM_READY) {
+        modem.waitForNetwork();
+    }
 
     SerialMon.println("Done");
 }
@@ -53,5 +57,9 @@ bool SMS::sendSMS(const String& number, const String& text) {
 
 bool SMS::ready() {
     return modem.isNetworkConnected();
+}
+
+SimStatus SMS::getStatus() {
+    return modem.getSimStatus();
 }
 

@@ -22,7 +22,10 @@ void Program::setup() {
 void Program::loop() {
     yield();
     led.run();
+    yield();
     sensor.run();
+    yield();
     server.accept();
+    yield();
     alarm.run();
 }

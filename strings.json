@@ -5,5 +5,6 @@
   "maxTemperature": "Alarm ab Temperatur:",
   "alertNumbers": "Folgende Nummern alarmieren:",
   "addNumber": "Nummer hinzufügen",
-  "alert": "Alarm aktiviert! Temperatur von {temp}°C um {time} erreicht."
+  "alert": "Alarm aktiviert! Temperatur von {temp}°C um {time} erreicht.",
+  "noSim": "Es ist keine SIM-Karte vorhanden."
 }

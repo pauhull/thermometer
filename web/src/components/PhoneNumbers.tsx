@@ -12,10 +12,28 @@ import JSX = createElement.JSX;
 
 function PhoneNumbers({ _numbers }: { _numbers: string[] }) {
 
+    const [ready, setReady] = useState<boolean | null>();
     const [numbers, setNumbers] = useState<string[]>(_numbers);
     const [numberError, setNumberError] = useState(false);
     const [number, setNumber] = useState("");
     const [addNumber, setAddNumber] = useState(false);
+
+    if (ready === null) {
+        void fetch("/ready")
+            .then(async (response) => response.text())
+            .then((response) => {
+                setReady(response === "true");
+            });
+        return <></>;
+    }
+    1;
+    if (!ready) {
+        return (
+            <div className="number-list">
+                <p style={{ color: "#ff948c", textAlign: "center" }}>{ strings.noSim }</p>
+            </div>
+        );
+    }
 
     const phoneUtil = new phone.PhoneNumberUtil();
 
