@@ -19,6 +19,8 @@ void Alarm::activate() {
     time = program->sms.getTime();
     program->led.setStatus(ALARM);
 
+    if(program->sms.getStatus() != SIM_READY) return;
+
     String alertMessage = String(ALERT);
     String tempString = String(temp);
     tempString.replace('.', ',');
